@@ -16,13 +16,14 @@
 <!-- HEADER -->
 <div class="jumbotron text-center">
     <div class="container">
-        <h1 style="font-size: 50px;" class="display-4">☕️Coffee & WiFi 💻</h1>
+        <h1 class="title" style="font-size: 50px;">Espresso Express</h1>
+        <h2>ATL</h2>
     </div>
 </div>
 
 
 <!-- FILTERS -->
-<div class="text-center">
+<div class="text-center page-body">
     <form method="post">
                 <div class="row no-gutters">
                     <button type="submit" name="wifi" class="btn btn-warning {{wifi_pressed}}">
@@ -81,20 +82,18 @@
 
 <!-- LIST OF CAFES -->
 <div class="results">
-    <div id="atlCafes" class="col-md-6 col-sm-6">
-        <h2>Atlanta</h2>
-        <p>The best work and study-friendly cafes in Atlanta. Find venues with free and reliable Wi-Fi hotspots, ample power sockets, and complimentary parking.</p>
-        <h3>Your Matches</h3>
-        <div class="list col-md-12 col-sm-12">
+    <div id="atlCafes" class="col-lg-6 col-xs-12">
+        <div class="list">
             {% for cafe in cafes %}
-                <a href="{{ cafe.cafe_url }}" target="_blank">
                     <div class="container">
                     <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-lg-3 col-xs-6">
                         <img class="card-img" alt="{{ cafe.name }}" src="{{ cafe.img_url }}">
                     </div>
-                    <div class="col-md-3 card-desc">
-                        <h4>{{ cafe.name }}</h4>
+                    <div class="col-lg-4 col-xs-6 card-desc">
+                        <a href="{{ cafe.cafe_url }}" target="_blank">
+                            <h4>{{ cafe.name }}</h4>
+                        </a>
                         <p>
                             <i class="fa fa-location-arrow"></i>
                             {{ cafe.location }}
@@ -103,17 +102,20 @@
                            <i class="fa fa-clock-o"></i>
                            {{ cafe.hours }}
                         </p>
+                        <p>
+                           <i class="fa fa-star"></i>
+                           {{ cafe.rating }}
+                        </p>
                     </div>
                     </div>
                     </div>
-                </a>
             {% endfor %}
         </div>
     </div>
 
     <!-- MAP -->
-    <div class="col-md-6">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1N7qOMJz4vKO_lIZAYCqKhSWZLR3uuZY&ehbc=2E312F" width="650" height="700"></iframe>
+    <div class="col-lg-6 col-xs-12">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1N7qOMJz4vKO_lIZAYCqKhSWZLR3uuZY&ehbc=2E312F" width="600" height="700"></iframe>
     </div>
 </div>
 {% endblock %}

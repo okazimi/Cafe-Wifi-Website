@@ -29,6 +29,7 @@ class Cafe(db.Model):
     restroom = db.Column(db.Boolean, nullable=False)
     pets = db.Column(db.Boolean, nullable=False)
     parking = db.Column(db.Boolean, nullable=False)
+    rating = db.Column(db.Integer, nullable=False)
 
     #  METHOD TO TRANSFORM JSON DATA INTO DICTIONARY
     def to_dict(self):
